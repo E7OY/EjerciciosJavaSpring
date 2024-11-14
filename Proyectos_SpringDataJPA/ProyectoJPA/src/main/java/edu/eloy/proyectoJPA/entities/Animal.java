@@ -29,9 +29,9 @@ public class Animal {
 
     //long con L mayuscula ya que es una clase envoltorio o wrapper, Integer es la clase wrapper de int 
     private Integer id;
-    @Column(name = "nombre", length = 255, nullable = false, unique = true);
+    @Column(name = "nombre", length = 255, nullable = false, unique = true)
     private String nombre;
-    @Enumerated(EnumType.STRING);
+    @Enumerated(EnumType.STRING)
     private Especie especie;
     private Double peso;
     private Integer edad;

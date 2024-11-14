@@ -22,7 +22,7 @@ public class personajesService implements iPersonajesService {
     @Override
     public Personaje buscarPersonajePorId(Integer id) {
         Optional<Personaje> op = personajesRepo.findById((long)id);
-         if (op.isPresent()) {
+        if (op.isPresent()) {
             return op.get();
         } 
         return null;
@@ -38,6 +38,5 @@ public class personajesService implements iPersonajesService {
     public Personaje guardarPersonaje(Personaje personaje) {
         return personajesRepo.save(personaje);
     }
-    
 
 }

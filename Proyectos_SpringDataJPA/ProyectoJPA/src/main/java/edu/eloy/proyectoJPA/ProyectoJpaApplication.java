@@ -34,17 +34,17 @@ public class ProyectoJpaApplication implements CommandLineRunner {  //Implementa
 		//Animal animalInsertar = new Animal(null, null, null, null, null) no podemos usar este constructor porque el id es auto incremental, y lo gestiona el gestor de base de datos
 		Animal animalInsetar  = new Animal();
 		animalInsetar.setNombre("Eloy");
-		animalInsetar.setEspecie("Lubina");
+		animalInsetar.setEspecie(Especie.PEZ);
 		animalInsetar.setEdad(20);
 		animalInsetar.setPeso(78.5);
 
-		Animal animalInsertar2 = new Animal("Loira", "Humano", 21.5, 21);
+		Animal animalInsertar2 = new Animal("Loira", Especie.SIMIO, 21.5, 21);
 
 		//Para actualizar un animal le pasamos el id, y ya hace el update el gestor de base de datos
-		Animal animalActualizar = new Animal(7, "Lubina", "Lubina", 20.0, 78);
+		Animal animalActualizar = new Animal(7, "Lubina", Especie.PEZ, 20.0, 78);
 
 		//Para eliminar un animal le pasamos el id, y ya hace el delete el gestor de base de datos
-		animalRepo.delete(new Animal(4, "Eloy", "Lubina", 20.0, 78));
+		animalRepo.delete(new Animal(4, "Eloy", Especie.PEZ, 20.0, 78));
 		animalRepo.deleteById(4);
 
 		animalRepo.save(animalInsetar);  
