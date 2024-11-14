@@ -10,6 +10,8 @@ public interface iPosesionesService {
 
     public Posesion buscarPosesionPorId(Integer id);
 
+    public void borrarPosesionPorid(Integer id);
+
 
 
 }

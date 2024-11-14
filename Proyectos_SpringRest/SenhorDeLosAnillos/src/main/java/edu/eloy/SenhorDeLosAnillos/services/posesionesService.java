@@ -30,5 +30,10 @@ public class posesionesService implements iPosesionesService {
         return null;
     }
 
+    @Override
+    public void borrarPosesionPorid(Integer id) {
+        posesionesRepo.deleteById((long)id);
+    }
+
 
 }
