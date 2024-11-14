@@ -1,0 +1,1 @@
+//si da error al intentar eliminar un objeto por id, falta el cascadatypeall en las claves foráneas
