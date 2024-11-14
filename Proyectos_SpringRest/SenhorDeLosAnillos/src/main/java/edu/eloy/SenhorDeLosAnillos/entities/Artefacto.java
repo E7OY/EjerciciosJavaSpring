@@ -86,8 +86,7 @@ public class Artefacto {
 
     @Override
     public String toString() {
-        return "Artefacto [idArtefacto=" + idArtefacto + ", nombre=" + nombre + ", tipo=" + tipo + ", posesiones="
-                + posesiones + "]";
+        return "Artefacto [idArtefacto=" + idArtefacto + ", nombre=" + nombre + ", tipo=" + tipo + "]";
     }
 
     

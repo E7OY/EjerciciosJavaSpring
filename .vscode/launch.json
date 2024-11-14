@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SenhorDeLosAnillosApplication<edu.eloy-SenhorDeLosAnillos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.eloy.SenhorDeLosAnillos.SenhorDeLosAnillosApplication",
+            "projectName": "edu.eloy-SenhorDeLosAnillos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

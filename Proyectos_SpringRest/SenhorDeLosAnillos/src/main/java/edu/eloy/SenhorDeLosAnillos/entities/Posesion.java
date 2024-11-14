@@ -1,10 +1,6 @@
 package edu.eloy.SenhorDeLosAnillos.entities;
 
-import java.security.PublicKey;
 import java.time.LocalDate;
-
-import org.hibernate.annotations.Collate;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,18 +22,18 @@ public class Posesion {
     private Long idPosesion;
 
     @ManyToOne
-    @JoinColumn(name = "idPersonaje")
+    @JoinColumn(name = "id_personaje")
     private Personaje personaje;
 
     @ManyToOne
-    @JoinColumn(name = "idArtefacto")
+    @JoinColumn(name = "id_artefacto")
     private Artefacto artefacto;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "fechaInicio", nullable = false)
+    @Column(name = "fecha_inicio", nullable = false)
     private LocalDate fechaInicio;
 
-    @Column(name = "fechaFin", nullable = true)
+    @Column(name = "fecha_fin", nullable = true)
     @Temporal(TemporalType.DATE)
     private LocalDate fechaFin;
 

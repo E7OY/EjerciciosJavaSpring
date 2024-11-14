@@ -10,7 +10,7 @@ INSERT INTO artefactos(nombre, tipo) VALUES
             ("ARTEFACTO 2", "BACULO"),
             ("ARTEFACTO 3", "ESPADA");
 
-INSERT INTO posesiones (idPersonaje, idArtefacto, fechaInicio, fechaFin) VALUES
+INSERT INTO posesiones (id_personaje, id_artefacto, fecha_inicio, fecha_fin) VALUES
             (1, 1, "2024-08-12", "2024-10-20"),
             (2, 2, "2022-01-10", "2023-12-24"),
             (3, 3, "2019-04-17", "2020-10-09");
