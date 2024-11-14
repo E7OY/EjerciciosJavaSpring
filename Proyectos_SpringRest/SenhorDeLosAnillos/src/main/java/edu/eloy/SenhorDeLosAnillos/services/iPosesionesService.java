@@ -8,6 +8,8 @@ public interface iPosesionesService {
 
     public List<Posesion> buscarPosesiones();
 
+    public Posesion buscarPosesionPorId(Integer id);
+
 
 
 }

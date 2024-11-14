@@ -10,4 +10,6 @@ public interface iArtefactosService {
 
     public Artefacto getArtefactoPorId(Integer id);
 
+    public void borrarArtefactoPorId(Integer id);
+
 }

@@ -1,6 +1,9 @@
 package edu.eloy.SenhorDeLosAnillos.entities;
 
 import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,10 +26,12 @@ public class Posesion {
 
     @ManyToOne
     @JoinColumn(name = "id_personaje")
+    @JsonIgnore
     private Personaje personaje;
 
     @ManyToOne
     @JoinColumn(name = "id_artefacto")
+    @JsonIgnore
     private Artefacto artefacto;
 
     @Temporal(TemporalType.DATE)
@@ -100,7 +105,7 @@ public class Posesion {
 
     @Override
     public String toString() {
-        return "Posesion [idPosesion=" + idPosesion + ", personaje=" + personaje + ", artefacto=" + artefacto
+        return "Posesion [idPosesion=" + idPosesion + ", personaje=" + personaje.getNombre() + ", artefacto=" + artefacto.getNombre()
                 + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + "]";
     }
 

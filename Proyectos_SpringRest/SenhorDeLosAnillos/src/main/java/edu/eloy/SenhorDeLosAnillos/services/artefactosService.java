@@ -31,4 +31,9 @@ public class artefactosService implements iArtefactosService {
         return null;
     }
 
+    @Override
+    public void borrarArtefactoPorId(Integer id) {
+        artefactosRepo.deleteById((long)id);
+    }
+
 }
