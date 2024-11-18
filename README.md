@@ -1,7 +1,6 @@
-Proyectos realizados con Spring en el CFGS_DAW
-
 <img src="https://github.com/user-attachments/assets/eca39006-1eff-4ac1-9cb4-4ea399722796" alt="spring-3" width="100" height="50">
 
+# Proyectos realizados con Spring en el CFGS_DAW
 
 ## SPRING DATA JPA
 * [Cadena hostelera](https://github.com/E7OY/JAVA_SPRING/tree/main/Proyectos_SpringDataJPA/CadenaHostelera)
