@@ -35,5 +35,15 @@ public class posesionesService implements iPosesionesService {
         posesionesRepo.deleteById((long)id);
     }
 
+    @Override
+    public Posesion guardarPosesion(Posesion posesion) {
+        return posesionesRepo.save(posesion);
+    }
+
+    @Override
+    public Posesion actualizarPosesion(Posesion posesion) {
+        return posesionesRepo.save(posesion);
+    }
+
 
 }

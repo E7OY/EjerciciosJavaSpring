@@ -12,4 +12,8 @@ public interface iArtefactosService {
 
     public void borrarArtefactoPorId(Integer id);
 
+    public Artefacto guardarArtefacto(Artefacto artefacto);
+
+    public Artefacto actualizArtefacto(Artefacto artefacto);
+
 }

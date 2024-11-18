@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 @RestController
 @RequestMapping("/personajes")
@@ -40,6 +42,11 @@ public class personajesController {
     @PostMapping("/guardar")
     public Personaje guardarPersonaje(@RequestBody Personaje personaje) {  //requestbody, en el postman escribimos desde la pestaña body el objeto
         return personajesService.guardarPersonaje(personaje);
+    }
+
+    @PutMapping("/actualizarpersonaje")
+    public Personaje actualizarPersonaje(@RequestBody Personaje personaje) {
+        return personajesService.actualizarPersonaje(personaje);
     }
     
 

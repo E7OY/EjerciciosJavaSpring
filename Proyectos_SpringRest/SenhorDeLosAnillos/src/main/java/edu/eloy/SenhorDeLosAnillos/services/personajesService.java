@@ -39,4 +39,9 @@ public class personajesService implements iPersonajesService {
         return personajesRepo.save(personaje);
     }
 
+    @Override
+    public Personaje actualizarPersonaje(Personaje personaje) {
+        return personajesRepo.save(personaje);
+    }
+
 }
