@@ -1,10 +1,8 @@
 package edu.eloy.SenhorDeLosAnillos.entities;
 
 import java.util.List;
-
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
 import edu.eloy.SenhorDeLosAnillos.entities.enumerated.Tipo;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -25,7 +23,7 @@ public class Artefacto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idArtefacto;
+    private Long id_artefacto;
 
     @Column(length = 55, nullable = false)
     private String nombre;
@@ -47,11 +45,11 @@ public class Artefacto {
     }
 
     public Long getIdArtefacto() {
-        return idArtefacto;
+        return id_artefacto;
     }
 
-    public void setIdArtefacto(Long idArtefacto) {
-        this.idArtefacto = idArtefacto;
+    public void setIdArtefacto(Long id_artefacto) {
+        this.id_artefacto = id_artefacto;
     }
 
     public String getNombre() {
@@ -70,8 +68,8 @@ public class Artefacto {
         this.tipo = tipo;
     }
 
-    public Artefacto(Long idArtefacto, String nombre, Tipo tipo) {
-        this.idArtefacto = idArtefacto;
+    public Artefacto(Long id_artefacto, String nombre, Tipo tipo) {
+        this.id_artefacto = id_artefacto;
         this.nombre = nombre;
         this.tipo = tipo;
     }
@@ -86,7 +84,7 @@ public class Artefacto {
 
     @Override
     public String toString() {
-        return "Artefacto [idArtefacto=" + idArtefacto + ", nombre=" + nombre + ", tipo=" + tipo + "]";
+        return "Artefacto [idArtefacto=" + id_artefacto + ", nombre=" + nombre + ", tipo=" + tipo + "]";
     }
 
     

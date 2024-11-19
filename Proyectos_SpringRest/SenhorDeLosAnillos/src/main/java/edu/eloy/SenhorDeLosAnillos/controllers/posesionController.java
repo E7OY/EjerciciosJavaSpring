@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping("/posesiones")
@@ -32,8 +35,12 @@ public class posesionController {
     @DeleteMapping("/{id}")
     public void borrarPosesionPorid(@PathVariable("id") Integer idBorrarUrl) {
         posesionesService.borrarPosesionPorid(idBorrarUrl);
+    }  
+
+    @PostMapping("/guardar")
+    public Posesion guardarPosesion(@RequestBody Posesion posesion) {
+        return posesionesService.guardarPosesion(posesion);
     }
-    
 
 
 }

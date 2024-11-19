@@ -1,10 +1,8 @@
 package edu.eloy.SenhorDeLosAnillos.entities;
 
 import java.util.List;
-
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
 import edu.eloy.SenhorDeLosAnillos.entities.enumerated.Alianza;
 import edu.eloy.SenhorDeLosAnillos.entities.enumerated.Raza;
 import jakarta.persistence.CascadeType;
@@ -26,7 +24,7 @@ public class Personaje {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPersonaje;
+    private Long id_personaje;
 
     @Column(length = 55, nullable = false, unique = true)
     private String nombre;
@@ -48,8 +46,8 @@ public class Personaje {
     public Personaje() {
     }
 
-    public Personaje(Long idPersonaje, String nombre, Raza raza, Alianza alianza) {
-        this.idPersonaje = idPersonaje;
+    public Personaje(Long id_personaje, String nombre, Raza raza, Alianza alianza) {
+        this.id_personaje = id_personaje;
         this.nombre = nombre;
         this.raza = raza;
         this.alianza = alianza;
@@ -62,11 +60,11 @@ public class Personaje {
     }
 
     public Long getIdPersonaje() {
-        return idPersonaje;
+        return id_personaje;
     }
 
-    public void setIdPersonaje(Long idPersonaje) {
-        this.idPersonaje = idPersonaje;
+    public void setIdPersonaje(Long id_personaje) {
+        this.id_personaje = id_personaje;
     }
 
     public String getNombre() {
@@ -95,7 +93,7 @@ public class Personaje {
 
     @Override
     public String toString() {
-        return "Personaje [idPersonaje=" + idPersonaje + ", nombre=" + nombre + ", raza=" + raza + ", alianza="
+        return "Personaje [idPersonaje=" + id_personaje + ", nombre=" + nombre + ", raza=" + raza + ", alianza="
                 + alianza + "]";
     }
 
