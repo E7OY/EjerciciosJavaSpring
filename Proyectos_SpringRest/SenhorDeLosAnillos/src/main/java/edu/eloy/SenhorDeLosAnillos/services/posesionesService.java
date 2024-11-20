@@ -35,7 +35,12 @@ public class posesionesService implements iPosesionesService {
 
     @Override
     public Posesion guardarPosesion(Posesion posesion) {
-         return posesionesRepo.save(posesion);
+         return posesionesRepo.save(posesion);        
+    }
+
+    @Override
+    public Posesion actualizarPosesion(Posesion posesion) {
+        return posesionesRepo.save(posesion);
     }
 
 

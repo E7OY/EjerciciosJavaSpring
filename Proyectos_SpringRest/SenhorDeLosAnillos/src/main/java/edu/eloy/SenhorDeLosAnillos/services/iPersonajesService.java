@@ -15,4 +15,6 @@ public interface iPersonajesService {
 
     public Personaje guardarPersonaje(Personaje personaje);
 
+    public Personaje actualizarPersonaje(Personaje personaje);
+
 }

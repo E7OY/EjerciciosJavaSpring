@@ -33,4 +33,14 @@ public class artefactosService implements iArtefactosService {
         artefactosRepo.deleteById((long)id);
     }
 
+    @Override
+    public Artefacto guardarArtefacto(Artefacto artefacto) {
+        return artefactosRepo.save(artefacto);
+    }
+
+    @Override
+    public Artefacto actualizArtefacto(Artefacto artefacto) {
+        return artefactosRepo.save(artefacto);
+    }
+
 }

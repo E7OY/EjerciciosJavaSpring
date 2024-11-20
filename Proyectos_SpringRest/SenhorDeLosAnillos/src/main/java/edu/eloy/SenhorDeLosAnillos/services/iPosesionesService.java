@@ -13,5 +13,7 @@ public interface iPosesionesService {
     public void borrarPosesionPorid(Integer id);
 
     public Posesion guardarPosesion(Posesion posesion);
+    
+    public Posesion actualizarPosesion(Posesion posesion);
 
 }
