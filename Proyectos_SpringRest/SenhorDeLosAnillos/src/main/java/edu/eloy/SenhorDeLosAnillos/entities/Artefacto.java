@@ -3,6 +3,8 @@ package edu.eloy.SenhorDeLosAnillos.entities;
 import java.util.List;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+
+
 import edu.eloy.SenhorDeLosAnillos.entities.enumerated.Tipo;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -84,9 +86,7 @@ public class Artefacto {
 
     @Override
     public String toString() {
-        return "Artefacto [idArtefacto=" + id_artefacto + ", nombre=" + nombre + ", tipo=" + tipo + "]";
+        return "Artefacto [id_artefacto=" + id_artefacto + ", nombre=" + nombre + ", tipo=" + tipo + ", posesiones="
+                + posesiones + "]";
     }
-
-    
-
 }

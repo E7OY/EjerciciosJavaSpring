@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.eloy.SenhorDeLosAnillos.entities.Personaje;
 import edu.eloy.SenhorDeLosAnillos.repositories.iPersonajeRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 
@@ -34,6 +35,7 @@ public class personajesService implements iPersonajesService {
         System.out.println("Personaje eliminado.");
     }
 
+    @Transactional  //hace que el metodo se comporte como una linea para evitar concurrencias, se pone en los borrados, actualizados y guardados, en todas las peticiones menos GET.
     @Override
     public Personaje guardarPersonaje(Personaje personaje) {
         return personajesRepo.save(personaje);

@@ -43,6 +43,22 @@ public class Personaje {
 
 
 
+    public Long getId_personaje() {
+        return id_personaje;
+    }
+
+    public void setId_personaje(Long id_personaje) {
+        this.id_personaje = id_personaje;
+    }
+
+    public List<Posesion> getPosesiones() {
+        return posesiones;
+    }
+
+    public void setPosesiones(List<Posesion> posesiones) {
+        this.posesiones = posesiones;
+    }
+
     public Personaje() {
     }
 
@@ -93,8 +109,8 @@ public class Personaje {
 
     @Override
     public String toString() {
-        return "Personaje [idPersonaje=" + id_personaje + ", nombre=" + nombre + ", raza=" + raza + ", alianza="
-                + alianza + "]";
+        return "Personaje [id_personaje=" + id_personaje + ", nombre=" + nombre + ", raza=" + raza + ", alianza="
+                + alianza + ", posesiones=" + posesiones + "]";
     }
 
 }

@@ -61,6 +61,8 @@ public class Posesion {
         this.fechaFin = fechaFin;
     }
 
+    
+
     public Long getIdPosesion() {
         return idPosesion;
     }
@@ -103,10 +105,11 @@ public class Posesion {
 
     @Override
     public String toString() {
-        return "Posesion [idPosesion=" + idPosesion + ", personaje=" + personaje.getNombre() + ", artefacto=" + artefacto.getNombre()
+        return "Posesion [idPosesion=" + idPosesion + ", personaje=" + personaje + ", artefacto=" + artefacto
                 + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + "]";
     }
 
     
-    
+
+ 
 }
