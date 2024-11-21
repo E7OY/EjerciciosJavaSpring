@@ -1,0 +1,7 @@
+ejercicio 1 -> Crear los entities de las 3 tablas
+ejercicio 2 -> Establecer las relaciones entre las tablas usando spring data
+ejercicio 3 -> Crear los CRRUD para los 3 entities, cuando veamos un objeto piloto queremos ver en qué carreras ha participado y la información de los circuitos.
+ejercicio 4 -> Crea un método que nos devuelva que pilotos hicieron pódium
+ejercicio 5 -> Crea un método que nos devuelva que pilotos hicieron pódium y en que carrera 
+ejercicio 6 -> Método que nos devuelva quién es el piloto que ha quedado más veces campeón
+ejercicio 7 -> Crea un end point que sea /circuitos/nombreCircuito, que pasándole el nombre del circuito te pase toda la info del circuito

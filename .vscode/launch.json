@@ -9,6 +9,16 @@
             "projectName": "edu.eloy-SenhorDeLosAnillos",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MotoGpApplication<MotoGP>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.eloy.MotoGP.MotoGpApplication",
+            "projectName": "MotoGP",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
