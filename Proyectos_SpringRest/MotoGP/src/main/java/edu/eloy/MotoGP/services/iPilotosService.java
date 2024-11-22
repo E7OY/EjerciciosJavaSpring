@@ -10,4 +10,10 @@ public interface iPilotosService {
 
     public Piloto getPilotoId(Integer idUrl);
 
+    public void borrarPiloto(Integer idUrl);
+
+    public Piloto savePiloto(Piloto piloto);
+
+    public Piloto updatePiloto(Piloto piloto);
+
 }
