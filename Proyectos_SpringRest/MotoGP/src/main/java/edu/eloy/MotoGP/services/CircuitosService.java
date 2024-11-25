@@ -45,6 +45,11 @@ public class CircuitosService implements iCircuitosService {
         return circuitosRepo.save(circuito);
     }
 
+    @Override
+    public Circuito getCircuitoPorNombre(String nombre) {
+        return circuitosRepo.findByNombre(nombre);
+    }
+
     
 
 }

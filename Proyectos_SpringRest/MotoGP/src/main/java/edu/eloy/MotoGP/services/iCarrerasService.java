@@ -10,4 +10,10 @@ public interface iCarrerasService {
 
     public Carrera getCarrera(Integer idUrl);
 
+    public Carrera saveCarrera(Carrera carrera);
+
+    public void deleteCarrera(Integer idInteger);
+
+    public Carrera updateCarrera(Carrera carrera);
+
 }

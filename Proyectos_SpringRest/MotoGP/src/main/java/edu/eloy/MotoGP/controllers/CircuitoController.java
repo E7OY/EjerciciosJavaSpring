@@ -1,8 +1,6 @@
 package edu.eloy.MotoGP.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.service.annotation.DeleteExchange;
-
 import edu.eloy.MotoGP.entities.Circuito;
 import edu.eloy.MotoGP.services.CircuitosService;
 import java.util.List;
@@ -11,13 +9,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
-
-
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -52,4 +47,10 @@ public class CircuitoController {
     public Circuito saveCircuito(@RequestBody Circuito circuito) {
         return circuitosService.saveCircuito(circuito);
     }
+
+    @GetMapping("/circuitonombre/{nombre}")
+    public Circuito getCircuitoPorNombre(@PathVariable("nombre") String nombre) {
+       return circuitosService.getCircuitoPorNombre(nombre);
+    }
+    
 }

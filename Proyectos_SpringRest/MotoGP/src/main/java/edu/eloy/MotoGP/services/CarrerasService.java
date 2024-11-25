@@ -2,10 +2,8 @@ package edu.eloy.MotoGP.services;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import edu.eloy.MotoGP.entities.Carrera;
 import edu.eloy.MotoGP.repositories.iCarrerasRepository;
 
@@ -30,10 +28,20 @@ public class CarrerasService implements iCarrerasService{
         return null;
     }
 
-    
+    @Override
+    public Carrera saveCarrera(Carrera carrera) {
+        return carrerasRepo.save(carrera);
+    }
 
-    
+    @Override
+    public void deleteCarrera(Integer idInteger) {
+        carrerasRepo.deleteById(idInteger);
+    }
 
+    @Override
+    public Carrera updateCarrera(Carrera carrera) {
+        return carrerasRepo.save(carrera);
+    }
 
     
 
