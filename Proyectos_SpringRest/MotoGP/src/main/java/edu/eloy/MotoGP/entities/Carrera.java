@@ -22,12 +22,12 @@ public class Carrera {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Integer id_carrera;
 
-    @ManyToOne
+    @ManyToOne(optional = true, targetEntity = Piloto.class)
     @JoinColumn(name = "id_piloto")
     @JsonIgnore
     private Piloto piloto;
 
-    @ManyToOne
+    @ManyToOne(optional = true, targetEntity = Circuito.class)
     @JoinColumn(name = "id_circuito")
     @JsonIgnore
     private Circuito circuito;
