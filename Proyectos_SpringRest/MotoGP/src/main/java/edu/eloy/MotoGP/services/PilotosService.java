@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import edu.eloy.MotoGP.DTOs.PilotoDTO;
 import edu.eloy.MotoGP.entities.Piloto;
 import edu.eloy.MotoGP.repositories.iPilotoRepository;
 
@@ -16,14 +18,15 @@ public class PilotosService implements iPilotosService {
 
     @Override
     public List<Piloto> getPilotos() {
-       return pilotosRepo.findAll();
+        return pilotosRepo.findAll();
     }
 
     @Override
-    public Piloto getPilotoId(Integer idUrl) {
+    public PilotoDTO getPilotoId(Integer idUrl) {
         Optional<Piloto> op = pilotosRepo.findById(idUrl);
         if (op.isPresent()) {
-            return op.get();
+            PilotoDTO pilotodDto = new PilotoDTO();
+            return pilotodDto;
         }
         return null;
     }
@@ -42,7 +45,5 @@ public class PilotosService implements iPilotosService {
     public Piloto updatePiloto(Piloto piloto) {
         return pilotosRepo.save(piloto);
     }
-
-    
 
 }

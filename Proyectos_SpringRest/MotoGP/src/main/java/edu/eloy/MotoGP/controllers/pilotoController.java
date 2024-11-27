@@ -1,6 +1,8 @@
 package edu.eloy.MotoGP.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import edu.eloy.MotoGP.DTOs.PilotoDTO;
 import edu.eloy.MotoGP.entities.Piloto;
 import edu.eloy.MotoGP.services.iPilotosService;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +29,7 @@ public class pilotoController {
     }
 
     @GetMapping("/{id}")
-    public Piloto getPilotoId(@PathVariable("id") Integer idUrl) {
+    public PilotoDTO getPilotoId(@PathVariable("id") Integer idUrl) {
         return pilotosService.getPilotoId(idUrl);
     }
 
