@@ -6,6 +6,5 @@ import edu.eloy.MotoGP.entities.Carrera;
 
 public interface iCarrerasRepository extends JpaRepository<Carrera, Integer> {
 
-    public List<Carrera> findByPosicion();
-
+ 
 }

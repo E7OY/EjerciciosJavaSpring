@@ -76,5 +76,13 @@ public class Circuito {
     public String toString() {
         return "Circuitos [id_circuito=" + id_circuito + ", nombre=" + nombre + ", localidad=" + localidad + "]";
     }
+
+    public List<Carrera> getCarreras() {
+        return carreras;
+    }
+
+    public void setCarreras(List<Carrera> carreras) {
+        this.carreras = carreras;
+    }
     
 }

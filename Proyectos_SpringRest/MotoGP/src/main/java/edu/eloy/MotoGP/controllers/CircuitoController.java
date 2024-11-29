@@ -1,6 +1,8 @@
 package edu.eloy.MotoGP.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import edu.eloy.MotoGP.DTOs.CircuitoDTO;
 import edu.eloy.MotoGP.entities.Circuito;
 import edu.eloy.MotoGP.services.CircuitosService;
 import java.util.List;
@@ -23,13 +25,13 @@ public class CircuitoController {
     CircuitosService circuitosService;
 
     @GetMapping("/all")
-    public List<Circuito> getAllCircuitos() {
-        return circuitosService.getAllCircuitos();
+    public List<CircuitoDTO> getAllCircuitosDtos() {
+        return circuitosService.getAllCircuitosDTO();
     }
 
     @GetMapping("/{id}")
-    public Circuito getCircuito(@PathVariable("id") Integer idUrl) {
-        return circuitosService.geCircuito(idUrl);
+    public CircuitoDTO getCircuitoDTO(@PathVariable("id") Integer idUrl) {
+        return circuitosService.geCircuitoDTO(idUrl);
     }
 
     @DeleteMapping("/{id}")

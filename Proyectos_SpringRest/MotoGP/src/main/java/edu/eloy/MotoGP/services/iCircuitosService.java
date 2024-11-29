@@ -1,13 +1,15 @@
 package edu.eloy.MotoGP.services;
 
 import java.util.List;
+
+import edu.eloy.MotoGP.DTOs.CircuitoDTO;
 import edu.eloy.MotoGP.entities.Circuito;
 
 public interface iCircuitosService {
 
-    public List<Circuito> getAllCircuitos();
+    public List<CircuitoDTO> getAllCircuitosDTO();
 
-    public Circuito geCircuito(Integer idUrl);
+    public CircuitoDTO geCircuitoDTO(Integer idUrl);
 
     public void deleteCiurcuito(Integer idUrl);
 

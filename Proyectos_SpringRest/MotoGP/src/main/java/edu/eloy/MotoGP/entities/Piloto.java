@@ -81,4 +81,12 @@ public class Piloto {
         return "Piloto [id_piloto=" + id_piloto + ", nombre=" + nombre + ", conduccion=" + conduccion + "]";
     }
 
+    public List<Carrera> getCarreras() {
+        return carreras;
+    }
+
+    public void setCarreras(List<Carrera> carreras) {
+        this.carreras = carreras;
+    }
+
 }

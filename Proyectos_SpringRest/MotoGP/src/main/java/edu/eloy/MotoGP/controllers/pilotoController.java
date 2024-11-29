@@ -24,13 +24,13 @@ public class pilotoController {
     iPilotosService pilotosService;
 
     @GetMapping("/all")
-    public List<Piloto> getPilotos() {
-        return pilotosService.getPilotos();
+    public List<PilotoDTO> getPilotosdDtos() {
+        return pilotosService.getPilotosDTO();
     }
 
     @GetMapping("/{id}")
     public PilotoDTO getPilotoId(@PathVariable("id") Integer idUrl) {
-        return pilotosService.getPilotoId(idUrl);
+        return pilotosService.getPilotoDTOId(idUrl);
     }
 
     @DeleteMapping("/{id}")
