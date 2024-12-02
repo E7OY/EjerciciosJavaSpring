@@ -7,6 +7,9 @@ import edu.eloy.MotoGP.entities.Carrera;
 import edu.eloy.MotoGP.services.CarrerasService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,13 +30,18 @@ public class carreraController {
     }
 
     @GetMapping("/{id}")
-    public CarreraDTO getCarrera(@RequestParam Integer idUrl) {
-        return carrerasService.getCarreraDTO(idUrl);
+    public ResponseEntity<CarreraDTO> getCarrera(@RequestParam Integer idUrl) {
+        CarreraDTO carreraDTO = carrerasService.getCarreraDTO(idUrl);
+        if (carreraDTO == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().header("Objeto encontrado", "Valores").body(carreraDTO);
     }
     
     @PostMapping("/save")
-    public Carrera saveCarrera(@RequestBody Carrera carrera) {
-        return carrerasService.saveCarrera(carrera);
+    public ResponseEntity<Carrera> saveCarrera(@RequestBody Carrera carrera) {
+        Carrera carreraGuardada = carrerasService.saveCarrera(carrera);
+        return ResponseEntity.status(HttpStatus.CREATED).body(carreraGuardada);
     }
 
     @DeleteMapping("/delete")
