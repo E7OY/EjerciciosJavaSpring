@@ -1,9 +1,13 @@
 package edu.eloy.MotoGP.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import edu.eloy.MotoGP.DTOs.CarreraDTO;
+import edu.eloy.MotoGP.controllers.carreraController;
 import edu.eloy.MotoGP.entities.Carrera;
 import edu.eloy.MotoGP.repositories.iCarrerasRepository;
 
@@ -15,15 +19,31 @@ public class CarrerasService implements iCarrerasService{
     iCarrerasRepository carrerasRepo;
 
     @Override
-    public List<Carrera> getAllCarreras() {
-        return carrerasRepo.findAll();
+    public List<CarreraDTO> getAllCarrerasDtos() {
+        List<Carrera> carreras = carrerasRepo.findAll();
+        List<CarreraDTO> carrerasDtos = new ArrayList<>();
+        for (Carrera carr : carreras) {
+            CarreraDTO carrdto = new CarreraDTO();
+            carrdto.setCircuito(carr.getCircuito());
+            carrdto.setPiloto(carr.getPiloto());
+            carrdto.setPosicion(carr.getPosicion());
+            carrdto.setTemporada(carr.getTemporada());
+            carrerasDtos.add(carrdto);
+        } 
+        return carrerasDtos;
     }
 
     @Override
-    public Carrera getCarrera(Integer idUrl) {
+    public CarreraDTO getCarreraDTO(Integer idUrl) {
         Optional<Carrera> op = carrerasRepo.findById(idUrl);
         if (op.isPresent()) {
-            return op.get();
+            Carrera carr = op.get();
+            CarreraDTO carreraDTO = new CarreraDTO();
+            carreraDTO.setCircuito(carr.getCircuito());
+            carreraDTO.setPiloto(carr.getPiloto());
+            carreraDTO.setPosicion(carr.getPosicion());
+            carreraDTO.setTemporada(carr.getTemporada());
+            return carreraDTO;
         }
         return null;
     }

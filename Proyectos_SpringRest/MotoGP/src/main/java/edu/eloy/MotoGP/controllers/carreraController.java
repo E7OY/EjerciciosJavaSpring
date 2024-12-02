@@ -1,6 +1,8 @@
 package edu.eloy.MotoGP.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import edu.eloy.MotoGP.DTOs.CarreraDTO;
 import edu.eloy.MotoGP.entities.Carrera;
 import edu.eloy.MotoGP.services.CarrerasService;
 import java.util.List;
@@ -20,13 +22,13 @@ public class carreraController {
     CarrerasService carrerasService;
 
     @GetMapping("/all")
-    public List<Carrera> getAllCarreras() {
-        return carrerasService.getAllCarreras();
+    public List<CarreraDTO> getAllCarrerasDtos() {
+        return carrerasService.getAllCarrerasDtos();
     }
 
     @GetMapping("/{id}")
-    public Carrera getCarrera(@RequestParam Integer idUrl) {
-        return carrerasService.getCarrera(idUrl);
+    public CarreraDTO getCarrera(@RequestParam Integer idUrl) {
+        return carrerasService.getCarreraDTO(idUrl);
     }
     
     @PostMapping("/save")
