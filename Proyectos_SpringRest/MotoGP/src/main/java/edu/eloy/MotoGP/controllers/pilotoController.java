@@ -7,7 +7,10 @@ import edu.eloy.MotoGP.entities.Piloto;
 import edu.eloy.MotoGP.services.iPilotosService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
+
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,13 +32,18 @@ public class pilotoController {
     }
 
     @GetMapping("/{id}")
-    public PilotoDTO getPilotoId(@PathVariable("id") Integer idUrl) {
-        return pilotosService.getPilotoDTOId(idUrl);
+    public ResponseEntity<PilotoDTO> getPilotoId(@PathVariable("id") Integer idUrl) {
+        PilotoDTO pilotodto = pilotosService.getPilotoDTOId(idUrl);
+        if (pilotodto == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().header("Objeto encontrado", "valores").body(pilotodto);
     }
 
     @DeleteMapping("/{id}")
-    public void borrarPiloto(@PathVariable("id") Integer idURl) {
+    public ResponseEntity<Void> borrarPiloto(@PathVariable("id") Integer idURl) {
         pilotosService.borrarPiloto(idURl);
+        return ResponseEntity.noContent().build();
     }
 
     @PostMapping("/save")

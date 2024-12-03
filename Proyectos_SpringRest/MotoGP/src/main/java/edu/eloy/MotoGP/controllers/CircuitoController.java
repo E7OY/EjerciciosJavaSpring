@@ -1,11 +1,16 @@
 package edu.eloy.MotoGP.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import edu.eloy.MotoGP.DTOs.CarreraDTO;
 import edu.eloy.MotoGP.DTOs.CircuitoDTO;
 import edu.eloy.MotoGP.entities.Circuito;
 import edu.eloy.MotoGP.services.CircuitosService;
 import java.util.List;
+
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,13 +34,18 @@ public class CircuitoController {
     }
 
     @GetMapping("/{id}")
-    public CircuitoDTO getCircuitoDTO(@PathVariable("id") Integer idUrl) {
-        return circuitosService.geCircuitoDTO(idUrl);
+    public ResponseEntity<CircuitoDTO> getCircuitoDTO(@PathVariable("id") Integer idUrl) {
+        CircuitoDTO circuitodto = circuitosService.geCircuitoDTO(idUrl);
+        if (circuitodto == null) 
+        return ResponseEntity.notFound().build(); {
+        }
+        return ResponseEntity.ok().header("objeto encontrado", "valores").body(circuitodto);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCiurcuito(@PathVariable("id") Integer idUrl ){
+    public ResponseEntity<Void> deleteCiurcuito(@PathVariable("id") Integer idUrl ){
         circuitosService.deleteCiurcuito(idUrl);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/update")
