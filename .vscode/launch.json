@@ -19,6 +19,16 @@
             "projectName": "MotoGP",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AlumnosAsignaturasApplication<alumnosAsignaturas>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.edu.alumnosAsignaturas.AlumnosAsignaturasApplication",
+            "projectName": "alumnosAsignaturas",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

@@ -4,8 +4,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.eloy.MotoGP.DTOs.PilotoDTO;
 import edu.eloy.MotoGP.entities.Piloto;
+import edu.eloy.MotoGP.entities.enumerated.Conduccion;
 import edu.eloy.MotoGP.services.iPilotosService;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import static org.mockito.Answers.valueOf;
+
 import java.util.List;
 
 import org.apache.catalina.connector.Response;
@@ -17,6 +21,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/pilotos")
@@ -32,12 +38,17 @@ public class pilotoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PilotoDTO> getPilotoId(@PathVariable("id") Integer idUrl) {
+    public ResponseEntity<PilotoDTO> getPilotoDTOId(@PathVariable("id") Integer idUrl) {
         PilotoDTO pilotodto = pilotosService.getPilotoDTOId(idUrl);
         if (pilotodto == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok().header("Objeto encontrado", "valores").body(pilotodto);
+    }
+
+    @GetMapping("/conduccion/{estilo}") 
+    public List<Piloto> getPilotoPorConduccion(@PathVariable("estilo") Conduccion conduccion) {
+        return pilotosService.getPilotosconduccion(conduccion.valueOf("conduccion"));
     }
 
     @DeleteMapping("/{id}")
@@ -55,4 +66,5 @@ public class pilotoController {
     public Piloto updatePiloto(@RequestBody Piloto piloto) {
         return pilotosService.updatePiloto(piloto);
     }
+    
 }

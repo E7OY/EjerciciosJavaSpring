@@ -4,6 +4,7 @@ import java.util.List;
 
 import edu.eloy.MotoGP.DTOs.PilotoDTO;
 import edu.eloy.MotoGP.entities.Piloto;
+import edu.eloy.MotoGP.entities.enumerated.Conduccion;
 
 public interface iPilotosService {
 
@@ -18,5 +19,7 @@ public interface iPilotosService {
     public Piloto updatePiloto(Piloto piloto);
 
     public List<PilotoDTO> getPilotosDTO();
+
+    public List<Piloto> getPilotosconduccion(Conduccion conduccion);
 
 }

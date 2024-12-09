@@ -44,6 +44,11 @@ public class PilotoDTO {
         this.carreras = carreras;
     }
 
+    @Override
+    public String toString() {
+        return "PilotoDTO [nombre=" + nombre + ", conduccion=" + conduccion + ", carreras=" + carreras + "]";
+    }
+
   
 
 }

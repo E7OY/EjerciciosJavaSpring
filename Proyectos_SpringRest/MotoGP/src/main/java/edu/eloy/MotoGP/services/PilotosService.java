@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.eloy.MotoGP.DTOs.PilotoDTO;
 import edu.eloy.MotoGP.entities.Piloto;
+import edu.eloy.MotoGP.entities.enumerated.Conduccion;
 import edu.eloy.MotoGP.repositories.iPilotoRepository;
 
 @Service
@@ -55,4 +56,8 @@ public class PilotosService implements iPilotosService {
         return pilotosRepo.save(piloto);
     }
 
+    @Override
+    public List<Piloto> getPilotosconduccion(Conduccion conduccion) {
+        return pilotosRepo.findByConduccion(conduccion.valueOf("conduccion"));
+    }
 }
