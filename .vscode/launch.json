@@ -29,6 +29,16 @@
             "projectName": "alumnosAsignaturas",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AlumnosAsignaturasBApplication<alumnosAsignaturasB>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.edu.alumnosAsignaturasB.AlumnosAsignaturasBApplication",
+            "projectName": "alumnosAsignaturasB",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
