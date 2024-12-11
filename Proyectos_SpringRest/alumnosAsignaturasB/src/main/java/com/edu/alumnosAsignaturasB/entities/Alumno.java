@@ -1,5 +1,6 @@
 package com.edu.alumnosAsignaturasB.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,8 +10,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "alumnos")
@@ -30,13 +35,9 @@ public class Alumno {
     @Column(length = 9, nullable = false, unique = true)
     private String dni;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-        name = "alumnosAsignaturas",
-        joinColumns = @JoinColumn(name = "id_alumno"),
-        inverseJoinColumns = @JoinColumn(name = "id_asignatura")
-    )
-    private List<Asignatura> asignaturas;
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(mappedBy = "alumno", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Matricula> matriculas;
 
     public Alumno() {
     }

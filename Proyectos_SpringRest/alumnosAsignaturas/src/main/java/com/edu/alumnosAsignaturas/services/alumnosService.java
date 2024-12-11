@@ -17,11 +17,12 @@ public class alumnosService implements iAlumnosServices {
     @Override
     public Alumno getAlumnoId(Integer idUrl) {
         Optional<Alumno> op = alumnosRepo.findById(idUrl);
-        if (op.isPresent()){
-            return op.get();
-        } else {
+        if (!op.isPresent()){
+            System.out.println("No se encuentra un alumno con ese id!!");
             return null;
-        }   
+        } 
+        return op.get();
+          
     }
 
     @Override
