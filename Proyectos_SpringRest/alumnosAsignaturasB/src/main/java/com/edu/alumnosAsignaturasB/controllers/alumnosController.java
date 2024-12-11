@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.edu.alumnosAsignaturasB.entities.Alumno;
 import com.edu.alumnosAsignaturasB.services.alumnosService;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
 @RequestMapping("/alumnos")
@@ -34,6 +36,13 @@ public class alumnosController {
         alumnosService.eliminarALumno(idUrl);
     } 
     
-    
+    @PutMapping("/update")
+    public Alumno update(@RequestBody Alumno alumno) {
+        return alumnosService.updateAlumno(alumno);
+    }
 
+    @PostMapping("/save")
+    public Alumno guardarAlumno(@RequestBody Alumno alumno) {
+        return alumnosService.saveAlumno(alumno);
+    }
 }
