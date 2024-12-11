@@ -44,7 +44,13 @@ public class alumnosService implements iAlumnosService {
         return alumnosRepo.save(alumno);
     }
 
-    
-
-
+    @Override
+    public double getMediaEdad() {
+        List<Alumno> listaAlumnos = alumnosRepo.findAll();
+        int sumaEdades = 0;
+        for(Alumno alumno : listaAlumnos) {
+            sumaEdades += alumno.getEdad();
+        }
+        return sumaEdades / listaAlumnos.size();
+    }
 }

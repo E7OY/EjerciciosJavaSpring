@@ -45,4 +45,10 @@ public class alumnosController {
     public Alumno guardarAlumno(@RequestBody Alumno alumno) {
         return alumnosService.saveAlumno(alumno);
     }
+
+    @GetMapping("/mediaedad")
+    public Double getMediaEdades() {
+        return alumnosService.getMediaEdad();
+    }
+    
 }

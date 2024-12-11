@@ -1,9 +1,9 @@
 package com.edu.alumnosAsignaturasB.entities;
 
 import java.math.BigDecimal;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,31 +20,21 @@ public class Matricula {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_matricula;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = Alumno.class, optional = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_alumno", nullable = false)
-    @JsonIgnore    
     private Alumno alumno;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = Asignatura.class, optional = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_asignatura", nullable = false)
-    @JsonIgnore
     private Asignatura asignatura;
 
-    @Column(scale = 2, nullable = false)
+    @Column(precision = 4, scale = 2, nullable = false)
     private BigDecimal nota;
 
     @Column(length = 4, nullable = false)
     private Integer curso;
 
-    public Matricula(){
-    }
-
-    public Matricula(Integer id_matricula, Alumno alumno, Asignatura asignatura, BigDecimal nota, Integer curso) {
-        this.id_matricula = id_matricula;
-        this.alumno = alumno;
-        this.asignatura = asignatura;
-        this.nota = nota;
-        this.curso = curso;
+    public Matricula() {
     }
 
     public Integer getId_matricula() {

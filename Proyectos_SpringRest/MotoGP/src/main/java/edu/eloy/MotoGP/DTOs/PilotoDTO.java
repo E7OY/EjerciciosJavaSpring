@@ -9,46 +9,42 @@ public class PilotoDTO {
 
     private String nombre;
     private Conduccion conduccion;
-    private List<Carrera> carreras;
-
-    public PilotoDTO(){
-    }
-
-    public PilotoDTO(String nombre, Conduccion conduccion, List<Carrera> carreras) {
+    private List<Carrera> listaCarreras;
+    
+    public PilotoDTO() {}
+    
+    public PilotoDTO(String nombre, Conduccion conduccion, List<Carrera> listaCarreras) {
         this.nombre = nombre;
         this.conduccion = conduccion;
-        this.carreras = carreras;
+        this.listaCarreras = listaCarreras;
     }
-
+    
     public String getNombre() {
         return nombre;
     }
-
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
     public Conduccion getConduccion() {
         return conduccion;
     }
-
+    
     public void setConduccion(Conduccion conduccion) {
         this.conduccion = conduccion;
     }
-
-    public List<Carrera> getCarreras() {
-        return carreras;
+    
+    public List<Carrera> getListaCarreras() {
+        return listaCarreras;
     }
-
-    public void setCarreras(List<Carrera> carreras) {
-        this.carreras = carreras;
+    
+    public void setListaCarreras(List<Carrera> listaCarreras) {
+        this.listaCarreras = listaCarreras;
     }
-
+    
     @Override
     public String toString() {
-        return "PilotoDTO [nombre=" + nombre + ", conduccion=" + conduccion + ", carreras=" + carreras + "]";
+        return "PilotoDTO [nombre=" + nombre + ", conduccion=" + conduccion + ", listaCarreras=" + listaCarreras + "]";
     }
-
-  
-
 }

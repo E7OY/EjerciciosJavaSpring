@@ -15,4 +15,7 @@ public interface iAlumnosService {
 
     public Alumno saveAlumno(Alumno alumno);
 
+    public double getMediaEdad();
+
+
 }

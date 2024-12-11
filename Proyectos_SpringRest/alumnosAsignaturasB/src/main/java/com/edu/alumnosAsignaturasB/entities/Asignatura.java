@@ -1,14 +1,9 @@
 package com.edu.alumnosAsignaturasB.entities;
 
 import java.util.List;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,14 +19,14 @@ public class Asignatura {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_asignatura;
 
-    @Column(length = 55, nullable = false, unique = true)
+    @Column(length = 55, nullable = false)
     private String nombre;
 
     @Column(nullable = false)
     private Integer horas;
 
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @OneToMany(mappedBy = "asignatura", fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
+    //@OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(mappedBy = "asignatura", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Matricula> matriculas;
 
     public Asignatura() {
@@ -69,6 +64,15 @@ public class Asignatura {
 
     @Override
     public String toString() {
-        return "Asignatura [id_asignatura=" + id_asignatura + ", nombre=" + nombre + ", horas=" + horas + "]";
+        return "Asignatura [id_asignatura=" + id_asignatura + ", nombre=" + nombre + ", horas=" + horas
+                + ", matriculas=" + matriculas + "]";
+    }
+
+    public List<Matricula> getMatriculas() {
+        return matriculas;
+    }
+
+    public void setMatriculas(List<Matricula> matriculas) {
+        this.matriculas = matriculas;
     }
 }

@@ -3,19 +3,12 @@ package com.edu.alumnosAsignaturasB.entities;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "alumnos")
@@ -32,11 +25,11 @@ public class Alumno {
     @Column(length = 3, nullable = false)
     private Integer edad;
 
-    @Column(length = 9, nullable = false, unique = true)
+    @Column(length = 10, nullable = false)
     private String dni;
 
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @OneToMany(mappedBy = "alumno", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    //@OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(mappedBy = "alumno", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Matricula> matriculas;
 
     public Alumno() {
@@ -83,6 +76,15 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno [id_alumno=" + id_alumno + ", nombre=" + nombre + ", edad=" + edad + ", dni=" + dni + "]";
+        return "Alumno [id_alumno=" + id_alumno + ", nombre=" + nombre + ", edad=" + edad + ", dni=" + dni
+                + ", matriculas=" + matriculas + "]";
+    }
+
+    public List<Matricula> getMatriculas() {
+        return matriculas;
+    }
+
+    public void setMatriculas(List<Matricula> matriculas) {
+        this.matriculas = matriculas;
     }
 }

@@ -36,7 +36,7 @@ public class Piloto {
 
     @OnDelete(action = OnDeleteAction.CASCADE)
     @OneToMany(mappedBy = "piloto", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Carrera> carreras;
+    private List<Carrera> listaCarreras;
 
     public Piloto(){
     }
@@ -81,12 +81,12 @@ public class Piloto {
         return "Piloto [id_piloto=" + id_piloto + ", nombre=" + nombre + ", conduccion=" + conduccion + "]";
     }
 
-    public List<Carrera> getCarreras() {
-        return carreras;
+    public List<Carrera> getListaCarreras() {
+        return listaCarreras;
     }
 
-    public void setCarreras(List<Carrera> carreras) {
-        this.carreras = carreras;
+    public void setListaCarreras(List<Carrera> carreras) {
+        this.listaCarreras = carreras;
     }
 
 }
