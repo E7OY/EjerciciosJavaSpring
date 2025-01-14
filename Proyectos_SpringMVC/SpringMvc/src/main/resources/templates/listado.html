@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de ofertas de trabajo</title>
+</head>
+<body>
+    
+    <h1> Vacantes disponibles</h1>
+
+    <ol>
+        <li th:each="tmpEmp:${empleos}" th:text="${tmpEmp}"></li>  <!--Con th:each iteramos listas,
+        para cada iteración, se almacena la cadena de texto en la variable tmpEmp-->
+    </ol> 
+
+</body>
+</html>

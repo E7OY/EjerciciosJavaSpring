@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+<body>
+
+    <!---
+    <h1 th:text="${mensaje}">Bienvenidos a la mejor app de ofertas de empleo</h1>  th por thymeleaf y text porque es una variable de texto
+    <h2>Hoy es: [[${fecha}]]</h2>  Para mostrar una variable dentro de una etiqueta se usan dobles corchetes 
+    -->
+
+    <h1>Bienvenido</h1>
+    <h2>Oferta de trabajo</h2>
+    <h3 th:text="'Titulo: ' + ${nombreHTML}"></h3>
+    <h3 th:text="'Fecha de publicacion: ' + ${fechaHTML}"></h3>
+    <h3 th:text="'Salario ofrecido: ' + ${salarioHTML}"></h3>
+    <h3 th:text="'Vigente: ' + ${vigenteHTML}"></h3>
+
+    
+</body>
+</html>
