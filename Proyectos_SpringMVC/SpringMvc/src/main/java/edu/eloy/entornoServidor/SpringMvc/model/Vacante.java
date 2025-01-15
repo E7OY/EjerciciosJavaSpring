@@ -9,6 +9,8 @@ public class Vacante {
     private String descripcion;
     private Date fecha;
     private Double salario;
+    private Integer destacado;
+    private String imagen;
     
     public Integer getId() {
         return id;
@@ -35,17 +37,31 @@ public class Vacante {
     public void setSalario(Double salario) {
         this.salario = salario;
     }
-
-    @Override
-    public String toString() {
-        return "Vacante [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
-                + ", salario=" + salario + "]";
-    }
     public Date getFecha() {
         return fecha;
     }
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+    public Integer getDestacado() {
+        return destacado;
+    }
+    public void setDestacado(Integer destacado) {
+        this.destacado = destacado;
+    }
+    
+    
+    @Override
+    public String toString() {
+        return "Vacante [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
+                + ", salario=" + salario + ", destacado=" + destacado + ", imagen=" + imagen + "]";
+    }
+    public String getImagen() {
+        return imagen;
+    }
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
 
 }

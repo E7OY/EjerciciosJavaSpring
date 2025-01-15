@@ -39,6 +39,16 @@
             "projectName": "alumnosAsignaturasB",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringMvcApplication<edu.eloy.entornoServidor-SpringMvc>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.eloy.entornoServidor.SpringMvc.SpringMvcApplication",
+            "projectName": "edu.eloy.entornoServidor-SpringMvc",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
