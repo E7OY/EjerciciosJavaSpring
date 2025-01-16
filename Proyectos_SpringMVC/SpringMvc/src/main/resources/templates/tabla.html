@@ -11,6 +11,7 @@
 
     <img th:src="@{images/image.png}" width="150" height="100"> <!--Imagen cargada de forma estática-->
     <h1 class="text-primary">Listado de vacantes</h1>
+
     <table class="table table-dark table-striped table-bordered table-hover" style="width: 100%; border: 1px solid black;">
         <tr>
             <th>Logo</th>
@@ -20,6 +21,7 @@
             <th>Salario</th>
             <th>Descripcion</th>
             <th>Destacado</th>
+            <th>Detalle</th>
         </tr>
 
         <tr th:each="vacante: ${vacantes}">
@@ -37,10 +39,15 @@
                 <span th:if="${vacante.destacado==1}" class="bardge bg-success">Si</span>  <!--if-unless, parecido a if-else -->
                 <span th:unless="${vacante.destacado==1}" class="badge bg-danger">No</span>
             </td>
+            <td>
+                <a th:href="@{/vacantes/view/{id} (id=${vacante.id}) }" class="btn btn-success">Ver Detalle</a>
+            </td>
         </tr>
-
-
     </table>
+
+
+    <!--PAGINA 35 4.5-->
+
     
 </body>
 </html>

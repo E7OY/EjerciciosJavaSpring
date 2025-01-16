@@ -59,6 +59,7 @@ public class HomeController {
         model.addAttribute("vacante", vacante);
         return "detalle";
     }
+    
 
     @GetMapping("/tabla")
     public String mostrarTabla(Model model) {
@@ -67,8 +68,6 @@ public class HomeController {
                 return "tabla";
     }
         
-    
-    
 
     public List<Vacante> getVacantes(){
         
