@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import edu.eloy.entornoServidor.SpringMvc.model.Vacante;
 
-
+//Las clases controller solo se encargan de gestionar que hacer en cada URL y devolver un String que será la web a desplegar
 @Controller
 
 public class HomeController {
