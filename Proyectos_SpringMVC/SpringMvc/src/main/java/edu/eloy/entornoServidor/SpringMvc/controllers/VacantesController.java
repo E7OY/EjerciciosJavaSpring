@@ -1,5 +1,7 @@
 package edu.eloy.entornoServidor.SpringMvc.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,13 @@ public class VacantesController {
 
     @Autowired
     iVacanteService serviceVacantes;
+
+    @GetMapping("/")
+    public String mostrarHome(Model model) {
+        List<Vacante> lista = serviceVacantes.buscarTodas();
+        model.addAttribute("vacantes", lista);
+        return "home";
+    }
     
     @GetMapping("/view/{id}")  //generacion de URL dinamicas o URI template
     public String verDetalle(@PathVariable("id") int idVacante, Model model) {

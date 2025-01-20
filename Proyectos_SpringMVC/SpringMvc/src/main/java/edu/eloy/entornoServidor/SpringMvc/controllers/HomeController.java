@@ -5,23 +5,38 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import edu.eloy.entornoServidor.SpringMvc.model.Vacante;
+import edu.eloy.entornoServidor.SpringMvc.services.iVacanteService;
 
 //Las clases controller solo se encargan de gestionar que hacer en cada URL y devolver un String que será la web a desplegar
 @Controller
 
 public class HomeController {
 
+    @Autowired
+    iVacanteService serviceVacantes;
+
+    //Para que los datos se renderizan de forma dinámica
+    //--------------PAGINA 52----------------
+    @GetMapping("/")
+    public String mostrarHome(Model model) {
+        List<Vacante> lista = serviceVacantes.buscarTodas();
+        model.addAttribute("vacantes", lista);
+        return "home";
+    }
+
+    /* 
     @GetMapping("/")
     public String mostrarHome(Model model) {
         /* 
         model.addAttribute("mensaje", "Mensaje dinamico");  //para desplegar una variable usamos el objeto Model y el metodo addAtribute
         model.addAttribute("fecha", new Date());
         */
-
+/*
         String nombreJ = "Profesor de matematicas";
         Date fechaPubJ = new Date();
         double salarioJ = 9000.0;
@@ -34,7 +49,7 @@ public class HomeController {
         
         return "home";  //devolvemos un string que sera el nombre de la pagina de la que mostrara la vista
     }
-
+*/
     @GetMapping("/listado") //para renderizar un listado
     public String mostrarListado(Model model) {
         
@@ -83,7 +98,7 @@ public class HomeController {
             vacante1.setSalario(8500.00);
             vacante1.setFecha(sdf.parse("08-02-2021"));  //analiza la cadena de texto "08-02-2021" y la convierte en un objeto Date.
             vacante1.setDestacado(1);
-            vacante1.setImagen("springboot.svg");
+            vacante1.setImagen("logo2.png");
 
             Vacante vacante2 = new Vacante();
             vacante2.setId(2);
@@ -92,7 +107,7 @@ public class HomeController {
             vacante2.setSalario(12000.00);
             vacante2.setFecha(sdf.parse("09-02-2021"));
             vacante2.setDestacado(0);
-            vacante2.setImagen("springboot.svg");
+            vacante2.setImagen("logo3.png");
 
             Vacante vacante3 = new Vacante();
             vacante3.setId(3);
@@ -109,7 +124,7 @@ public class HomeController {
             vacante4.setSalario(15000.00);
             vacante4.setFecha(sdf.parse("11-02-2021"));
             vacante4.setDestacado(0);
-            vacante4.setImagen("springboot.svg");
+            vacante4.setImagen("logo4.png");
 
 
             lista.add(vacante1);
