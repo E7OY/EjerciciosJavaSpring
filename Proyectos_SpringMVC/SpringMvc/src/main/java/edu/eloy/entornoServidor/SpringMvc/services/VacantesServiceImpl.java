@@ -38,7 +38,7 @@ public class VacantesServiceImpl implements iVacanteService {
             vacante1.setSalario(8500.00);
             vacante1.setFecha(sdf.parse("08-02-2021"));  //analiza la cadena de texto "08-02-2021" y la convierte en un objeto Date.
             vacante1.setDestacado(1);
-            vacante1.setImagen("springboot.svg");
+            vacante1.setImagen("logo2.png");
 
             Vacante vacante2 = new Vacante();
             vacante2.setId(2);
@@ -47,7 +47,7 @@ public class VacantesServiceImpl implements iVacanteService {
             vacante2.setSalario(12000.00);
             vacante2.setFecha(sdf.parse("09-02-2021"));
             vacante2.setDestacado(0);
-            vacante2.setImagen("springboot.svg");
+            vacante2.setImagen("logo3.png");
 
             Vacante vacante3 = new Vacante();
             vacante3.setId(3);
@@ -56,7 +56,7 @@ public class VacantesServiceImpl implements iVacanteService {
             vacante3.setSalario(10500.00);
             vacante3.setFecha(sdf.parse("10-02-2021"));
             vacante3.setDestacado(1);
-
+            
             Vacante vacante4 = new Vacante();
             vacante4.setId(4);
             vacante4.setNombre("Diseñador Gráfico");
@@ -64,7 +64,7 @@ public class VacantesServiceImpl implements iVacanteService {
             vacante4.setSalario(15000.00);
             vacante4.setFecha(sdf.parse("11-02-2021"));
             vacante4.setDestacado(0);
-            vacante4.setImagen("springboot.svg");
+            vacante4.setImagen("logo4.png");
 
 
             lista.add(vacante1);

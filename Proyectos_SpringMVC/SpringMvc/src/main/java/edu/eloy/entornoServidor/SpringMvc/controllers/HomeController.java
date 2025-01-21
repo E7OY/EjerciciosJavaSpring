@@ -21,7 +21,6 @@ public class HomeController {
     iVacanteService serviceVacantes;
 
     //Para que los datos se renderizan de forma dinámica
-    //--------------PAGINA 52----------------
     @GetMapping("/")
     public String mostrarHome(Model model) {
         List<Vacante> lista = serviceVacantes.buscarTodas();

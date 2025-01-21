@@ -18,31 +18,11 @@
 
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">EmpleosApp</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <!--PAGINA 63 TUTORIAL-->
+    
+    <!--Referenciamos el fragmento creado en /fragments/menu.html-->
+    <header th:insert="fragments/menu.html :: menu-principal"></header>
 
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Menu 1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Menu 2</a>
-                    </li>
-                </ul>
-                <a class="btn btn-primary" href="#">Ingresar</a>&nbsp;
-                <a class="btn btn-primary" href="#">Registrarse</a>
-            </div>
-        </nav>
-    </header>
 
     <main role="main">
 
@@ -73,15 +53,14 @@
             <hr>
             <div class="row" th:each="vacante: ${vacantes}">  <!--Renderiza objetos de la bbdd-->
                 <div class="col-md-3">
-                    <img class="rounded mx-auto d-block" th:src="@{/images/{img} (img=${vacante.imagen}) }" alt="Generic placeholder image"
-                        width="220" height="220">  <!--Dinamizar imagen-->
+                    <img class="rounded mx-auto d-block img-fluid" th:src="@{/images/{img} ( img=${vacante.imagen} ) }" alt="Generic placeholder image" width="220" height="220">  <!--Dinamizar imagen-->
                 </div>
                 <div class="col-md-9">
                     <h2 th:text="${vacante.nombre}"></h2>  <!--Valores de las propiedades dinamicas-->
                     <h6 class="card-title"><strong>Categoría: </strong> <span>Pendiente de configurar Categorias</span></h6>
                     <h6 class="card-title"><strong>Publicado: </strong> <span th:text="${vacante.fecha}">2019-01-01 </span></h6>
                     <p th:text="${vacante.descripcion}"></p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                    <p><a class="btn btn-secondary" th:href="@{/vacantes/view/{id} (id=${vacante.id}) }" role="button">Detalles &raquo;</a></p>
                 </div>
             </div> <!--
             <div class="row">
@@ -119,15 +98,7 @@
 
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>
-                &copy; 2021 EmpleosApp, Inc. | WebApp Desarrollada con Spring Boot 2.1.2 | Autor: alumnos de daw |
-                &middot; <a href="#">Privacy</a>
-                &middot; <a href="#">Terms</a>
-            </p>
-        </div>
-    </footer>
+    <footer class="footer" th:insert="fragments/footer.html  :: pie-pagina"></footer>
 
     <!-- Bootstrap core JavaScript
         ================================================== -->
