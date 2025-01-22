@@ -9,4 +9,6 @@ public interface iVacanteService {
 
     Vacante buscarPorId(Integer idVacante);
 
+    void guardar(Vacante vacante); 
+
 }
