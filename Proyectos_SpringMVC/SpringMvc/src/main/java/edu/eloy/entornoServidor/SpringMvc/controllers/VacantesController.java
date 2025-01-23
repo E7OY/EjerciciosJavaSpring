@@ -8,12 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import edu.eloy.entornoServidor.SpringMvc.model.Vacante;
 import edu.eloy.entornoServidor.SpringMvc.services.iVacanteService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,23 +64,18 @@ public class VacantesController {
 
     // metodo controlador para recibir las peticiones del formulario
     @PostMapping("/save")
-    public String guardar(Vacante vacante, Model model, @RequestParam("nombre") String nombre,
-            @RequestParam("descripcion") String descripcion,
-            @RequestParam("estatus") String estatus, @RequestParam("fecha") String fecha,
-            @RequestParam("destacado") int destacado,
-            @RequestParam("salario") double salario, @RequestParam("detalles") String detalles) {
-                System.out.println("Vacante: " + vacante);
-                serviceVacantes.guardar(vacante);
-                List<Vacante> lista = serviceVacantes.buscarTodas();
-                model.addAttribute("vacantes", lista);
-        System.out.println("Nombre vacante: " + nombre);
-        System.out.println("Descripcion: " + descripcion);
-        System.out.println("Estatus: " + estatus);
-        System.out.println("Fecha de publicacion: " + fecha);
-        System.out.println("Destacado: " + destacado);
-        System.out.println("Salario: " + salario);
-        System.out.println("Detalles: " + detalles);
-        return "vacantes/listVacantes";
+    public String guardar(Vacante vacante, Model model, BindingResult result, RedirectAttributes attributes) {
+        if (result.hasErrors()) { // metodo para comprobar si la conversion de datos del formulario a spring tiene errores
+            for (ObjectError error : result.getAllErrors()) {
+                System.out.println("Ocurrio un error: " + error.getDefaultMessage());
+            }
+            return "vacantes/formVacantes";
+        }
+        //Procesar objeto de modelo
+        serviceVacantes.guardar(vacante);
+        attributes.addFlashAttribute("msg", "Registro guardado adecuadamente");
+        return "redirect:/vacantes/index";  //para que nos devuelva otro m etodo y no otra lista
+        
     }
 
     /*
@@ -97,5 +96,5 @@ public class VacantesController {
         model.addAttribute("vacantes", lista);
         return "vacantes/listVacantes";
     }
-    
+
 }
