@@ -58,7 +58,8 @@ public class VacantesController {
     }
 
     @GetMapping("/create")
-    public String crear() {
+    public String crear(Model model) {
+        model.addAttribute("vacante", new Vacante());
         return "vacantes/formVacante";
     }
 
@@ -69,7 +70,7 @@ public class VacantesController {
             for (ObjectError error : result.getAllErrors()) {
                 System.out.println("Ocurrio un error: " + error.getDefaultMessage());
             }
-            return "vacantes/formVacantes";
+            return "vacantes/formVacante";
         }
         //Procesar objeto de modelo
         serviceVacantes.guardar(vacante);
@@ -89,6 +90,7 @@ public class VacantesController {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
+
 
     @GetMapping("/index")
     public String mostrarIndex(Model model) {
