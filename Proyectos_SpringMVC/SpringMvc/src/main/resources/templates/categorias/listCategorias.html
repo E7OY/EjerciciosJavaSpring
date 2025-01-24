@@ -39,33 +39,15 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Recursos Humanos</td>
-                  <td>Trabajos relacionados con el area de RH.</td>
+                <tr th:each="categoria: ${categorias}">
+                  <th scope="row"  th:text="${categoria.id}"></th>
+                  <td th:text="${categoria.nombre}"></td>
+                  <td th:text="${categoria.descripcion}"></td>
                   <td>
                     <a href="#" class="btn btn-success btn-sm" role="button" title="Editar"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
                     <a href="#" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar"><i class="fas fa-trash" aria-hidden="true"></i></a>
                   </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Ventas</td>
-                  <td>Ofertas de trabajo relacionado con ventas.</td>
-                  <td>
-                    <a href="#" class="btn btn-success btn-sm" role="button" title="Editar"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a href="#" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar"><i class="fas fa-trash" aria-hidden="true"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Arquitectura</td>
-                  <td>Diseño de planos en general y trabajos relacionados.</td>
-                  <td>
-                    <a href="#" class="btn btn-success btn-sm" role="button" title="Editar"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a href="#" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar"><i class="fas fa-trash" aria-hidden="true"></i></a>
-                  </td>
-                </tr>                
+                </tr>  
               </tbody>
             </table>
             

@@ -28,7 +28,7 @@
         <div class="card">
           <h4 class="card-header"><strong>Datos de la oferta de trabajo</strong></h4>              
           <div class="card-body">
-            <form th:action="@{/vacantes/save}" th:object="${vacante}" method="post">  
+            <form th:action="@{/vacantes/save}" th:object="${vacante}" enctype="multipart/form-data" method="post">  
           <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger" role="alert">
                   Por favor, corrija los errores del formulario:
                   <ul>
@@ -54,12 +54,8 @@
                 <div class="col-md-3"> 
                   <div class="form-group">
                     <label for="categoria">Categoría</label>
-                    <select class="form-control" name="categoria" id="categoria">
-                      <option value="1">Ventas</option>
-                      <option value="2">Contabilidad</option>
-                      <option value="3">Transporte</option>
-                      <option value="4">Informatica</option>
-                      <option value="5">Construccion</option>
+                    <select class="form-control" th:field="*{categoria.id}" name="categoria" id="categoria">
+                      <option th:each="categoria: ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>
                     </select>
                   </div>
                 </div>
@@ -116,7 +112,7 @@
                 </div> 
                 <div class="col-md-3">
                   <label for="imagen">Imagen/Logo</label>
-                  <img class="rounded mx-auto d-block" src="images/construccion-logo.png" alt="Generic placeholder image" width="200" height="200">            
+                  <img class="rounded mx-auto d-block" src="images/logo1.png" alt="Generic placeholder image" width="200" height="200">            
                 </div>
               </div> 
               <button type="submit" class="btn btn-primary">Guardar</button>  
