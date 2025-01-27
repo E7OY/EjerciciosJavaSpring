@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +29,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequestMapping("/vacantes")
 
 public class VacantesController {
+
+    //INYECCION DEL VALOR DE LA PROPIEDAD CREADA
+    @Value("${springMVC.ruta.imagenes}")
+    private String ruta;
 
     @Autowired
     iVacanteService serviceVacantes;
@@ -81,7 +86,7 @@ public class VacantesController {
 
         //Para subir imagenes:
         if (!multiPart.isEmpty()) {
-            String ruta = "c:/empleos/img-vacantes/";
+            //String ruta = "c:/empleos/img-vacantes/";
             String nombreImagen = Utileria.guardarArchivo(multiPart, ruta);
             if (nombreImagen != null) {   // La imagen si se subio
                 //Procesamos la variable nombreImagen
