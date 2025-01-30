@@ -13,19 +13,22 @@ public class Alumno {
     private LocalDate fechaNacimiento;
     private Genero genero;
     private Disposicion disposicion;
+    private String fotoDni;
     
     public Alumno() {
     }
     
     public Alumno(String nombre, String apellido1, String apellido2, LocalDate fechaNacimiento, Genero genero,
-            Disposicion disposicion) {
+            Disposicion disposicion, String fotoDni) {
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
         this.fechaNacimiento = fechaNacimiento;
         this.genero = genero;
         this.disposicion = disposicion;
+        this.fotoDni = fotoDni;
     }
+ 
     public String getNombre() {
         return nombre;
     }
@@ -62,9 +65,20 @@ public class Alumno {
     public void setDisposicion(Disposicion disposicion) {
         this.disposicion = disposicion;
     }
+ 
+
     @Override
     public String toString() {
         return "Alumno [nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-                + ", fechaNacimiento=" + fechaNacimiento + ", genero=" + genero + ", disposicion=" + disposicion + "]";
+                + ", fechaNacimiento=" + fechaNacimiento + ", genero=" + genero + ", disposicion=" + disposicion
+                + ", fotoDni=" + fotoDni + "]";
+    }
+
+    public String getFotoDni() {
+        return fotoDni;
+    }
+
+    public void setFotoDni(String fotoDni) {
+        this.fotoDni = fotoDni;
     }
 }

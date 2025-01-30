@@ -23,15 +23,7 @@ public class InformaticaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
-		Alumno alumno = new Alumno( "Juan", "Perez", "Garcia", LocalDate.of(1990, 1, 1), Genero.HOMBRE, Disposicion.COLABORADOR);
 
-		List<Alumno> alumnos = new ArrayList<>();
-		alumnos.add(alumno);
-		System.out.println(alumnos);
-
-		Ordenador ordenador = new Ordenador("HP", "Pavilion", Memoria.GB_16, CPU.AMD_RYZEN_3, GPU.ASUS);
-		System.out.println(ordenador);
 
 
 	}
