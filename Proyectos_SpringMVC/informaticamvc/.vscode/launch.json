@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-InformaticaApplication<Informatica>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.rico.alumnos.mvc.InformaticaApplication",
+            "projectName": "Informatica",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
