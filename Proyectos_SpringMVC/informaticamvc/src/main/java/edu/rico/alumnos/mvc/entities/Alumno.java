@@ -4,20 +4,45 @@ import java.time.LocalDate;
 
 import edu.rico.alumnos.mvc.entities.enumerated.Disposicion;
 import edu.rico.alumnos.mvc.entities.enumerated.Genero;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "alumnos")
 
 public class Alumno {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "nombre", length = 55, nullable = false)
     private String nombre;
+    @Column(name = "apellido1", length = 55, nullable = false)
     private String apellido1;
+    @Column(name = "apellido2", length = 55, nullable = true)
     private String apellido2;
+    @Column(name = "fecha_nacimiento", nullable = false)
     private LocalDate fechaNacimiento;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "genero", nullable = false, columnDefinition ="ENUM('HOMBRE', 'MUJER')")
     private Genero genero;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "disposicion", nullable = false, columnDefinition = "ENUM('AUSENTE', 'COLABORADOR', 'TRABAJADOR')")
     private Disposicion disposicion;
+    @Column(name = "foto_dni", length = 255, nullable = true)
     private String fotoDni;
     
+  
+
     public Alumno() {
     }
-    
+
     public Alumno(String nombre, String apellido1, String apellido2, LocalDate fechaNacimiento, Genero genero,
             Disposicion disposicion, String fotoDni) {
         this.nombre = nombre;

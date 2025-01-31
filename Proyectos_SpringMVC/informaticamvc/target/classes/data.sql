@@ -1,0 +1,17 @@
+INSERT INTO alumnos (nombre, apellido1, apellido2, fecha_nacimiento, genero, disposicion) VALUES
+("Diego", "Coello", "Morán", "1990-05-25", "HOMBRE", "COLABORADOR"),
+('Adrian', 'Canedo', 'Bello', '2005-05-23', "HOMBRE", "TRABAJADOR"),
+('Pablo', 'Rivero', 'Criado', '2003-06-24', "MUJER",  "AUSENTE"),
+('Iago', 'Vila', 'Porritas', '2003-06-17',  "MUJER",  "AUSENTE"),
+('Xenxo', 'Taboas', 'Alonso', '2001-01-12', "MUJER",  "TRABAJADOR"),
+('Fernando','Rodriguez','Rodriguez','1997-03-17','HOMBRE','AUSENTE'),
+('Alejandro', 'López', 'Pedreira', '2001-04-14', 'HOMBRE', 'AUSENTE'),
+('Daniel', 'Sanchez', 'Vazquez', '1994-03-18', 'HOMBRE', 'TRABAJADOR'),
+('Adrián','Castro','Beiro','2002-05-12','HOMBRE','AUSENTE'),
+('Pablo', 'Rodríguez', 'Bizcochito', "2005-07-01", "HOMBRE", "TRABAJADOR"),
+('Alejandro', 'Del Mar', 'Gonzalez', "2002-03-13", "HOMBRE", "COLABORADOR"),
+("Nicolas", "Manteiga", "Camba", "2003-10-14", "HOMBRE", "AUSENTE"),
+('Nicolás', 'Álvarez', 'Pérez', '2005-02-23', "HOMBRE", "TRABAJADOR"),
+('Mateo','Fernández','Rivera','2004-09-16','HOMBRE','AUSENTE'),
+("María", "Quintairos", "Fernández", "2003-03-26", "MUJER", "TRABAJADOR"),
+("Ariadna", "Fraga", "Martínez", "2004-07-19", "MUJER", "COLABORADOR");
