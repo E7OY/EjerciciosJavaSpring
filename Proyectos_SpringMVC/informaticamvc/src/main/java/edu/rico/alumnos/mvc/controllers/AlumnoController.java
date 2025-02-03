@@ -1,30 +1,29 @@
 package edu.rico.alumnos.mvc.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.rico.alumnos.mvc.entities.Alumno;
-import edu.rico.alumnos.mvc.services.AlumnosService;
-import org.springframework.web.bind.annotation.RequestParam;
+import edu.rico.alumnos.mvc.services.IAlumnosService;
+import org.springframework.web.bind.annotation.PostMapping;
 
-
-
-@Controller    // DECORADOR DE SPRING MVC
+@Controller
 @RequestMapping("/alumnos")
-
 public class AlumnoController {
 
     @Autowired
-    private AlumnosService alumnosService;
+    private IAlumnosService alumnoService;
 
     @GetMapping("/list")
-    public String listaAlumnos(Model model) {
-        model.addAttribute("alumnos", alumnosService.getAllAlumnos());
+    public String listarAlumnos(Model model) {
+        List<Alumno> alumnos = alumnoService.getAllAlumnos();
+        model.addAttribute("alumnos", alumnos);
         return "alumnosindex";
     }
 
@@ -35,9 +34,15 @@ public class AlumnoController {
     
     @PostMapping("/save")
     public String guardarAlumno(Alumno alumno) {
-        System.out.println("Aluno guardado: " + alumnosService.saveAlumno(alumno));
-        return "redirect:/alumnos/list";  //redirect porque es un guardado y no nos devuelve una vista
+        System.out.println("ALUMNO GUARDADO => " + alumnoService.saveAlumno(alumno));
+        return "redirect:/alumnos/list";
     }
     
+    @GetMapping("/detalle/{id}")
+    public String detalleAlumno(@PathVariable("id") Long id,Model model) {
+        model.addAttribute("alumno", alumnoService.getAlumnoById(id));
+        return "alumnodetalle";
+    }
 
+    
 }

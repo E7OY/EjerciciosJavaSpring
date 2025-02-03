@@ -1,7 +1,6 @@
 package edu.rico.alumnos.mvc.entities;
 
 import java.time.LocalDate;
-
 import edu.rico.alumnos.mvc.entities.enumerated.Disposicion;
 import edu.rico.alumnos.mvc.entities.enumerated.Genero;
 import jakarta.persistence.Column;
@@ -15,7 +14,6 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "alumnos")
-
 public class Alumno {
 
     @Id
@@ -37,8 +35,6 @@ public class Alumno {
     private Disposicion disposicion;
     @Column(name = "foto_dni", length = 255, nullable = true)
     private String fotoDni;
-    
-  
 
     public Alumno() {
     }
@@ -53,50 +49,56 @@ public class Alumno {
         this.disposicion = disposicion;
         this.fotoDni = fotoDni;
     }
- 
+
+    
+
+
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
     public String getApellido1() {
         return apellido1;
     }
+
     public void setApellido1(String apellido1) {
         this.apellido1 = apellido1;
     }
+
     public String getApellido2() {
         return apellido2;
     }
+
     public void setApellido2(String apellido2) {
         this.apellido2 = apellido2;
     }
+
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
+
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+
     public Genero getGenero() {
         return genero;
     }
+
     public void setGenero(Genero genero) {
         this.genero = genero;
     }
+
     public Disposicion getDisposicion() {
         return disposicion;
     }
+
     public void setDisposicion(Disposicion disposicion) {
         this.disposicion = disposicion;
-    }
- 
-
-    @Override
-    public String toString() {
-        return "Alumno [nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-                + ", fechaNacimiento=" + fechaNacimiento + ", genero=" + genero + ", disposicion=" + disposicion
-                + ", fotoDni=" + fotoDni + "]";
     }
 
     public String getFotoDni() {
@@ -106,4 +108,22 @@ public class Alumno {
     public void setFotoDni(String fotoDni) {
         this.fotoDni = fotoDni;
     }
+
+    @Override
+    public String toString() {
+        return "Alumno [nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
+                + ", fechaNacimiento=" + fechaNacimiento + ", genero=" + genero + ", disposicion=" + disposicion
+                + ", fotoDni=" + fotoDni + "]";
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    
+
 }

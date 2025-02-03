@@ -8,5 +8,6 @@ public interface IAlumnosService {
 
     public List<Alumno> getAllAlumnos();
     public Alumno saveAlumno(Alumno alumno);
+    public Alumno getAlumnoById(Long id);
 
 }

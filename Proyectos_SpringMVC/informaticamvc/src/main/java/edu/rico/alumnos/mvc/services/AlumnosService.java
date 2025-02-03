@@ -45,4 +45,10 @@ public class AlumnosService implements IAlumnosService {
             return alumnosRepo.findAll();
         }
 
+
+        @Override
+        public Alumno getAlumnoById(Long id) {
+            return alumnosRepo.findById(id).orElse(null);
+        }
+
 }
