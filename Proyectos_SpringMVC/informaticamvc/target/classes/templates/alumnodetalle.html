@@ -22,6 +22,29 @@
         </div>
       </div>
 
+      <h1>FORMULARIO ACTUALIZAR ALUMNO</h1>
+    <form th:action="@{/alumnos/save}" method="POST" th:object="${alumno}">
+        <input type="hidden" id="id" name="id" th:value="${alumno.id}">
+        <label class="form-label" for="nombre">Nombre:</label>
+        <input class="form-control" type="text" id="nombre" name="nombre" th:value="${alumno.nombre}" required>
+        <label class="form-label" for="apellido1">Apellido1:</label>
+        <input class="form-control" type="text" id="apellido1" name="apellido1" th:value="${alumno.apellido1}" required>
+        <label  class="form-label"for="apellido2">Apellido2:</label>   
+        <input class="form-control" type="text" id="apellido2" name="apellido2" th:value="${alumno.apellido2}">
+        <label  class="form-label"for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input class="form-control" type="date" id="fechaNacimiento" name="fechaNacimiento" th:value="${alumno.fechaNacimiento}" required>
+        <label class="form-label" for="genero">Genero:</label>
+        <select class="form-select" id="genero" name="genero" value>
+            <option th:each="genero: ${generos}" th:value="${genero}" th:text="${genero}" th:selected="${alumno.genero == genero}"></option>
+        </select>
+        <label class="form-label" for="disposicion">Disposicion:</label>
+        <select class="form-select" id="disposicion" name="disposicion">
+            <option th:each="disposicion : ${disposiciones}" th:value="${disposicion}" th:text="${disposicion}" th:selected="${alumno.disposicion == disposicion}"></option>
+        </select>
+
+        <button class="btn btn-secondary" type="submit">Editar</button>
+    </form>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
