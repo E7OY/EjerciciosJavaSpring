@@ -1,18 +1,17 @@
 package edu.rico.alumnos.mvc.controllers;
 
-import java.util.List;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import edu.rico.alumnos.mvc.entities.Alumno;
 import edu.rico.alumnos.mvc.entities.enumerated.Disposicion;
 import edu.rico.alumnos.mvc.entities.enumerated.Genero;
-import edu.rico.alumnos.mvc.services.IAlumnosService;
+import edu.rico.alumnos.mvc.services.IAlumnoService;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -20,12 +19,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AlumnoController {
 
     @Autowired
-    private IAlumnosService alumnoService;
+    private IAlumnoService alumnoService;
 
     @GetMapping("/list")
     public String listarAlumnos(Model model) {
         List<Alumno> alumnos = alumnoService.getAlumnos();
         model.addAttribute("alumnos", alumnos);
+        System.out.println("ALUMNOS => " + alumnos);
         return "alumnosindex";
     }
 
@@ -45,6 +45,7 @@ public class AlumnoController {
         model.addAttribute("generos", Genero.values());
         model.addAttribute("disposiciones", Disposicion.values());
         model.addAttribute("alumno", alumnoService.getAlumnoById(id));
+        System.out.println("ALUMNO DETALLE => " + alumnoService.getAlumnoById(id));
         return "alumnodetalle";
     }
 
@@ -57,6 +58,6 @@ public class AlumnoController {
         return "redirect:/alumnos/list";
     }
 
+
+    
 }
-
-
