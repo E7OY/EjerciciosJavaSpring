@@ -1,15 +1,21 @@
 package edu.rico.alumnos.mvc.entities;
 
 import java.time.LocalDate;
+import java.util.List;
+
 import edu.rico.alumnos.mvc.entities.enumerated.Disposicion;
 import edu.rico.alumnos.mvc.entities.enumerated.Genero;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -35,6 +41,9 @@ public class Alumno {
     private Disposicion disposicion;
     @Column(name = "foto_dni", length = 255, nullable = true)
     private String fotoDni;
+
+    @ManyToMany(mappedBy = "alumno", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Asignatura> asignaturas;
 
     public Alumno() {
     }
