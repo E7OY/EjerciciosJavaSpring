@@ -1,14 +1,20 @@
 package com.eloy.backend.userapp.backendusersapp.UserAPP.auth;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import com.eloy.backend.userapp.backendusersapp.UserAPP.auth.filters.JwtAuthenticationFilter;
 
 @Configuration
 public class SpringSecurityCofig {
+
+    @Autowired
+    AuthenticationConfiguration authenticationConfiguration;
 
     //metodo para configurar la cadena de filtros de seguridad
     @Bean
@@ -21,6 +27,7 @@ public class SpringSecurityCofig {
         para acceder a la vista (authenticated)*/
         .anyRequest().authenticated()
         .and()
+        .addFilter(new JwtAuthenticationFilter(authenticationManager))
         /*El metodo crsf se usa para evitar exploits o vulnerabilidades en los
         formularios.*/
         .csrf((config -> config.disable()))
