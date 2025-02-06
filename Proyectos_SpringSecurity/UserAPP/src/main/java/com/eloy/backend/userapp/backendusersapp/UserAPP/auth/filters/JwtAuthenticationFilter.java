@@ -63,7 +63,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         /*
          * Creamoe el token para dicho usuario y será lo que retorna el método.
          */
-        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, password)
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, password);
     
         /*El método authenticate hara toda la autenticacion verfiicando los datos
         contra una fuente de datos, en este caso la base de datos

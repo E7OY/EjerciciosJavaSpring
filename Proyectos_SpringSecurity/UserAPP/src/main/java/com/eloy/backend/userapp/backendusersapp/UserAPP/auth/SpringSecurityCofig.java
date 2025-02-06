@@ -27,7 +27,7 @@ public class SpringSecurityCofig {
         para acceder a la vista (authenticated)*/
         .anyRequest().authenticated()
         .and()
-        .addFilter(new JwtAuthenticationFilter(authenticationManager))
+        .addFilter(new JwtAuthenticationFilter(authenticationConfiguration.getAuthenticationManager()))
         /*El metodo crsf se usa para evitar exploits o vulnerabilidades en los
         formularios.*/
         .csrf((config -> config.disable()))
