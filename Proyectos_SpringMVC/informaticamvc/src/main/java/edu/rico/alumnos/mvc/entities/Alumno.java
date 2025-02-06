@@ -66,8 +66,6 @@ public class Alumno {
         this.fotoDni = fotoDni;
     }
 
-    
-
 
     public String getNombre() {
         return nombre;
