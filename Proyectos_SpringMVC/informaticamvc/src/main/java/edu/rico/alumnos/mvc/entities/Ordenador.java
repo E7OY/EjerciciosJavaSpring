@@ -3,7 +3,6 @@ package edu.rico.alumnos.mvc.entities;
 import edu.rico.alumnos.mvc.entities.enumerated.CPU;
 import edu.rico.alumnos.mvc.entities.enumerated.GPU;
 import edu.rico.alumnos.mvc.entities.enumerated.Memoria;
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -98,7 +97,4 @@ public class Ordenador {
                 + ", procesador=" + procesador + ", tarjetaGrafica=" + tarjetaGrafica + "]";
     }
 
-   
-
-    
 }

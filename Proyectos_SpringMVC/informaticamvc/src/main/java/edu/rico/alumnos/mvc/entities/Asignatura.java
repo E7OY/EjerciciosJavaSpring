@@ -1,10 +1,12 @@
 package edu.rico.alumnos.mvc.entities;
 
+import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,6 +20,8 @@ public class Asignatura {
     private String nombre;
     @Column(name = "abreviatura", length = 5, nullable = false, unique = true)
     private String abreviatura;
+    @ManyToMany(mappedBy = "asignaturas")
+    private List<Alumno> alumnos; 
     
     public Asignatura() {
     }
@@ -55,6 +59,4 @@ public class Asignatura {
     public String toString() {
         return "Asignatura [id=" + id + ", nombre=" + nombre + ", abreviatura=" + abreviatura + "]";
     }
-
-  
 }

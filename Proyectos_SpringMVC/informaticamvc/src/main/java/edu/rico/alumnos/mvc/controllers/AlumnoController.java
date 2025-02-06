@@ -1,6 +1,5 @@
 package edu.rico.alumnos.mvc.controllers;
 
-
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -58,6 +57,11 @@ public class AlumnoController {
         return "redirect:/alumnos/list";
     }
 
+    @GetMapping("/{idAlumno}/asignatura/{idAsignatura}")
+    public String eliminarAsignaturaDeAlumno(@PathVariable("idAlumno") Long idAlumno, @PathVariable("idAsignatura") Long idAsignatura ,Model model) {
+        System.out.println("ASIGNATURAS DEL ALUMNO: " + alumnoService.getAlumnoById(idAlumno));
+        alumnoService.deleteAsignaturaDeAlumno(idAlumno, idAsignatura);
+        return "redirect:/alumnos/detalle/" + idAlumno;
+    }
 
-    
 }
