@@ -59,6 +59,16 @@
             "projectName": "Informatica",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-InformaticaApplication<edu.rico.alumnos.mvc-Informatica>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.rico.alumnos.mvc.InformaticaApplication",
+            "projectName": "edu.rico.alumnos.mvc-Informatica",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
