@@ -35,7 +35,7 @@ public class AlumnoController {
     
     @PostMapping("/save")
     public String guardarAlumno(Alumno alumno) {
-        System.out.println("ALUMNO GUARDADO => " + alumnoService.saveAlumno(alumno));
+        alumnoService.saveAlumno(alumno);
         return "redirect:/alumnos/list";
     }
     
@@ -50,18 +50,18 @@ public class AlumnoController {
 
     @GetMapping("/eliminar/{id}")
     public String eliminarAlumno(@PathVariable("id") Long id,Model model) {
-        
         System.out.println("PROCEDEMOS A ELIMINAR AL ALUMNO: " + alumnoService.getAlumnoById(id));
         alumnoService.deleteAlumno(id);
-        
         return "redirect:/alumnos/list";
     }
 
+    
     @GetMapping("/{idAlumno}/asignatura/{idAsignatura}")
     public String eliminarAsignaturaDeAlumno(@PathVariable("idAlumno") Long idAlumno, @PathVariable("idAsignatura") Long idAsignatura ,Model model) {
         System.out.println("ASIGNATURAS DEL ALUMNO: " + alumnoService.getAlumnoById(idAlumno));
         alumnoService.deleteAsignaturaDeAlumno(idAlumno, idAsignatura);
         return "redirect:/alumnos/detalle/" + idAlumno;
     }
+
 
 }

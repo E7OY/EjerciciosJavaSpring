@@ -43,8 +43,7 @@ public class AlumnoService implements IAlumnoService {
         alumnoRepository.deleteById(id);
     }
 
-
-    @Override
+        @Override
     public void deleteAsignaturaDeAlumno(Long idAlumno, Long idAsignatura) {
         Alumno alumnoBd = alumnoRepository.findById(idAlumno).orElseThrow(() -> new EntityNotFoundException("Alumno no encontrado en la BD"));
         Asignatura asignaturaBd = asignaturaRepository.findById(idAsignatura).orElseThrow(() -> new EntityNotFoundException("Asignatura no encontrada en la BD"));
