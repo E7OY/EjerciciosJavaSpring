@@ -7,6 +7,9 @@ public interface IAsignaturaService {
 
     public List<Asignatura> getAsignaturas();
 
+    public Asignatura getAsignaturaId(Long id);
+
     public Asignatura saveAsignatura(Asignatura asignatura);
-    
+
+    public Asignatura updateAsignatura(Asignatura asignatura);    
 }

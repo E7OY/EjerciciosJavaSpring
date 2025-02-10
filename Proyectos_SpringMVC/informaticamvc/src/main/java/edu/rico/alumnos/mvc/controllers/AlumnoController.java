@@ -54,7 +54,6 @@ public class AlumnoController {
         alumnoService.deleteAlumno(id);
         return "redirect:/alumnos/list";
     }
-
     
     @GetMapping("/{idAlumno}/asignatura/{idAsignatura}")
     public String eliminarAsignaturaDeAlumno(@PathVariable("idAlumno") Long idAlumno, @PathVariable("idAsignatura") Long idAsignatura ,Model model) {
@@ -62,6 +61,5 @@ public class AlumnoController {
         alumnoService.deleteAsignaturaDeAlumno(idAlumno, idAsignatura);
         return "redirect:/alumnos/detalle/" + idAlumno;
     }
-
 
 }

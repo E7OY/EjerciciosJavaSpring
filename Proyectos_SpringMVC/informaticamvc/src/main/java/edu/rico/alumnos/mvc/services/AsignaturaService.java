@@ -9,6 +9,7 @@ import edu.rico.alumnos.mvc.entities.Alumno;
 import edu.rico.alumnos.mvc.entities.Asignatura;
 import edu.rico.alumnos.mvc.repositories.IAlumnoRepository;
 import edu.rico.alumnos.mvc.repositories.IAsignaturasRepository;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -29,6 +30,16 @@ public class AsignaturaService implements IAsignaturaService {
     @Override
     public Asignatura saveAsignatura(Asignatura asignatura) {
         return asignaturasRepo.save(asignatura);
+    }
+
+    @Override
+    public Asignatura updateAsignatura(Asignatura asignatura) {
+        return asignaturasRepo.save(asignatura);
+    }
+
+    @Override
+    public Asignatura getAsignaturaId(Long id) {
+        return asignaturasRepo.findById(id).orElse(null);
     }
     
 }
