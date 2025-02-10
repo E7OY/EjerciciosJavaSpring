@@ -1,5 +1,6 @@
 package edu.rico.alumnos.mvc.controllers;
 
+import edu.rico.alumnos.mvc.entities.Alumno;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import edu.rico.alumnos.mvc.services.IAsignaturaService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
 
 @Controller
 @RequestMapping("/asignaturas")
@@ -48,5 +50,19 @@ public class AsignaturaController {
         return "asignaturasedit";
     }
 
+    @GetMapping("/{id}/alumnos")
+    public String verAlumnosDeAsignatura(@PathVariable("id") Long id, Model model) {
+        Asignatura asignatura = asignaturaService.getAsignaturaId(id);
+        List<Alumno> alumnos = alumnoService.getAlumnosPorAsignatura(asignatura);
+        model.addAttribute("asignatura", asignatura);
+        model.addAttribute("alumnos", alumnos);
+        return "asignaturasalumnos";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String getMethodName(@PathVariable("id") Long id) {
+        asignaturaService.deleteAsignatura(id);
+        return "redirect:/asignaturas/list";
+    }
 
 }

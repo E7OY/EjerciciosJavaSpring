@@ -15,14 +15,17 @@
                 <th>NOMBRE</th>
                 <th>ABREVIATURA</th>
                 <th></th>
+                <th></th>
             </tr>
             <tr th:each="asignatura : ${asignaturas}">
                 <td th:text="${asignatura.nombre}"></td>
                 <td th:text="${asignatura.abreviatura}"></td>
                 <td><a th:href="@{/asignaturas/edit/{id} (id = ${asignatura.id}) }" class="btn btn-light">Editar</a></td>
+                <td><a th:href="@{/asignaturas/{id}/alumnos (id=${asignatura.id})}" class="btn btn-info">Ver Alumnos</a></td>
+                <td><a th:href="@{/asignaturas/eliminar/{id} (id=${asignatura.id}) }" class="btn btn-danger">Eliminar</a> </td>
             </tr>
         </table>
-        <a class="btn btn-primary" th:href="@{/asignaturas/form}">CREAR NUEVA</a>
+        <a class="btn btn-primary mb-5" th:href="@{/asignaturas/form}">CREAR NUEVA</a>
     </div>
 
 </body>

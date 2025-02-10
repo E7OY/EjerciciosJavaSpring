@@ -52,4 +52,10 @@ public class AlumnoService implements IAlumnoService {
         alumnoRepository.save(alumnoBd);
     }
 
+
+        @Override
+        public List<Alumno> getAlumnosPorAsignatura(Asignatura asignatura) {
+        return alumnoRepository.findByAsignaturas(asignatura);
+        }
+
 }

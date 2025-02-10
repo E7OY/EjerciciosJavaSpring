@@ -11,5 +11,7 @@ public interface IAsignaturaService {
 
     public Asignatura saveAsignatura(Asignatura asignatura);
 
-    public Asignatura updateAsignatura(Asignatura asignatura);    
+    public Asignatura updateAsignatura(Asignatura asignatura);
+    
+    public void deleteAsignatura(Long id);
 }
