@@ -1,7 +1,6 @@
 package com.eloy.backend.userapp.backendusersapp.UserAPP.auth.filters;
 
 import java.io.IOException;
-import java.net.Authenticator;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -80,7 +79,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 /*Almacenamos el username, que extraemos del objeto authResult invocando al metodo getPrincipal,
                 (le estamos, dame el nombre de usuario que contiene el objeto resultante de la autenticación exitosa)
                  */
-                String username = ((User) authResult.getPrincipal()).getUsername();
+                String username = ((org.springframework.security.core.userdetails.User) authResult.getPrincipal()).getUsername();
                 String originalInput = "PALABRA_SECRETA." + username;
                 /*codificamos el unput, que como es String y hay que codificar a bytes usamos getbytes() */
                 String token = Base64.getEncoder().encodeToString(originalInput.getBytes());
@@ -110,7 +109,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                  * usando un mapa con pares clave-valor
                  */
                 Map<String, Object> body = new HashMap<>();
-                body.put("message", "Erroe en el login! username o password incorrectos");
+                body.put("message", "Error en el login! username o password incorrectos");
                 body.put("error", failed.getMessage());
                 /*Metemos en la respuesta el body en forma de JSON mediante ObjectMapper y writeValueAsString */
                 response.getWriter().write(new ObjectMapper().writeValueAsString(body));

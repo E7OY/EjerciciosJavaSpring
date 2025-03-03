@@ -69,6 +69,16 @@
             "projectName": "edu.rico.alumnos.mvc-Informatica",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UserAppApplication<com.eloy.backend.userapp.backendusersapp-UserAPP>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.eloy.backend.userapp.backendusersapp.UserAPP.UserAppApplication",
+            "projectName": "com.eloy.backend.userapp.backendusersapp-UserAPP",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
