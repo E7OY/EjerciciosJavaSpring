@@ -72,11 +72,19 @@
         },
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "Spring Boot-BackendUsersappApplication<com.andres.backend.usersapp-backend-usersapp>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.andres.backend.usersapp.backendusersapp.BackendUsersappApplication",
             "projectName": "com.andres.backend.usersapp-backend-usersapp",
+=======
+            "name": "Spring Boot-UserAppApplication<com.eloy.backend.userapp.backendusersapp-UserAPP>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.eloy.backend.userapp.backendusersapp.UserAPP.UserAppApplication",
+            "projectName": "com.eloy.backend.userapp.backendusersapp-UserAPP",
+>>>>>>> 26b3d630f0ee9ac6d150028878630157057c1dad
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
