@@ -69,6 +69,16 @@
             "projectName": "edu.rico.alumnos.mvc-Informatica",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-BackendUsersappApplication<com.andres.backend.usersapp-backend-usersapp>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.andres.backend.usersapp.backendusersapp.BackendUsersappApplication",
+            "projectName": "com.andres.backend.usersapp-backend-usersapp",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
